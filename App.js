@@ -5,7 +5,6 @@ import ImageViewer from './components/ImageViewer';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 
-
 const PlaceholderImage = require('./assets/images/chihiro019.jpg');
 
 export default function App() {
@@ -16,7 +15,8 @@ export default function App() {
       allowsEditting: true,
       quality: 1,
     });
-    if (result.canceled) {
+
+    if (!result.canceled) {
       setSelectedImage(result.assets[0].uri);
     } else {
       alert('You did not select any image.')
